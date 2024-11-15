@@ -11,21 +11,23 @@ public class DiamondDrawer {
         int spacesCount = -1;
         char currentLetter;
         for (currentLetter = FIRST_LETTER + 1; currentLetter <= letter; currentLetter++) {
-            diamond.append(currentLetter);
-            spacesCount += DIAMOND_SPACE_ENLARGEMENT;
-            appendSpaces(diamond, spacesCount);
-            diamond.append(currentLetter + "\n");
+            spacesCount = drawLine(diamond, spacesCount, currentLetter, true);
         }
 
         for (currentLetter = (char) (letter - 1); currentLetter > FIRST_LETTER; currentLetter--) {
-            diamond.append(currentLetter);
-            spacesCount -= DIAMOND_SPACE_ENLARGEMENT;
-            appendSpaces(diamond, spacesCount);
-            diamond.append(currentLetter + "\n");
+            spacesCount = drawLine(diamond, spacesCount, currentLetter, false);
         }
 
         diamond.append(FIRST_LETTER);
         return diamond.toString();
+    }
+
+    private int drawLine(StringBuilder diamond, int spacesCount, char currentLetter, boolean increasing) {
+        diamond.append(currentLetter);
+        spacesCount += (increasing ? DIAMOND_SPACE_ENLARGEMENT : -DIAMOND_SPACE_ENLARGEMENT);
+        appendSpaces(diamond, spacesCount);
+        diamond.append(currentLetter + "\n");
+        return spacesCount;
     }
 
     private static void appendSpaces(StringBuilder stringBuilder, int spacesCount) {
