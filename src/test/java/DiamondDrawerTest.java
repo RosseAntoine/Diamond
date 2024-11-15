@@ -9,9 +9,16 @@ public class DiamondDrawerTest {
     }
 
     @Test
-    public void testALetterReturnsTwoLinesString() {
+    public void testALetterReturnsAccordingDiamond() {
         DiamondDrawer diamondDrawer = new DiamondDrawer();
         String diamond = diamondDrawer.drawDiamond('A');
         Assertions.assertEquals("A\nA", diamond);
+    }
+
+    @Test
+    public void testCLetterReturnsAccordingDiamond() {
+        DiamondDrawer diamondDrawer = new DiamondDrawer();
+        String diamond = diamondDrawer.drawDiamond('C');
+        Assertions.assertEquals("A\nB B\nC   C\nB B\nA", diamond);
     }
 }
