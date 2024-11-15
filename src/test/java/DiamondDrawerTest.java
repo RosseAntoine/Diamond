@@ -21,4 +21,24 @@ public class DiamondDrawerTest {
         String diamond = diamondDrawer.drawDiamond('C');
         Assertions.assertEquals("A\nB B\nC   C\nB B\nA", diamond);
     }
+
+    @Test
+    public void testGLetterReturnsAccordingDiamond() {
+        DiamondDrawer diamondDrawer = new DiamondDrawer();
+        String diamond = diamondDrawer.drawDiamond('G');
+        Assertions.assertEquals("A\n" +
+                        "B B\n" +
+                        "C   C\n" +
+                        "D     D\n" +
+                        "E       E\n" +
+                        "F         F\n" +
+                        "G           G\n" +
+                        "F         F\n" +
+                        "E       E\n" +
+                        "D     D\n" +
+                        "C   C\n" +
+                        "B B\n" +
+                        "A",
+                diamond);
+    }
 }
