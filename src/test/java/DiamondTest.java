@@ -7,4 +7,10 @@ public class DiamondTest {
         Diamond diamond = new Diamond();
         Assertions.assertThrows(IllegalArgumentException.class, () -> diamond.drawDiamond('1'));
     }
+
+    @Test
+    public void testNonLetterThrowsException() {
+        Diamond diamond = new Diamond();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> diamond.drawDiamond('1'));
+    }
 }
